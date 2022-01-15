@@ -1,2 +1,96 @@
 # SketchfabCSharp
 C# wrapper for the Sketchfab API (Unity)
+
+# Functions Included
+
+1) Authentication.
+2) Get Model Information.
+3) Download and Instantiate Models.
+4) Get User Information (Own Account).
+5) Get Model Lists (With thumbnails).
+6) Search Models.
+7) Model and Info Cache in order to avoid queries for objects that you already downloaded.
+
+
+# Examples
+
+## Authentication
+
+Once this code is executed all the following requests will be authenticated automatically
+
+```
+    SketchfabAPI.GetAccessToken(Email, Password, (SketchfabResponse<SketchfabAccessToken> answer) =>
+    {
+        if(answer.Success)
+        {
+            AccessToken = answer.Object.AccessToken;
+            SketchfabAPI.AuthorizeWithAccessToken(answer.Object);
+        }
+        else
+        {
+            Debug.LogError(answer.ErrorMessage);
+        }
+
+    });
+```
+
+To Logout just call:
+
+```
+    SketchfabAPI.Logout(); that is equivalent to setting the access token to String.Empty
+```
+
+
+## Download Model
+
+Downloads a model using its uid.
+
+```
+  // This first call will get the model information
+  SketchfabAPI.GetModel(_uid, (resp) =>
+  {
+      // This second call will get the model information, download it and instantiate it
+      SketchfabModelImporter.Import(resp.Object, (obj) =>
+      {
+          if(obj != null)
+          {
+              // Here you can do anything you like to obj (A unity game object containing the sketchfab model)
+          }
+      });
+  });
+```
+
+## Get List of Models
+
+In this snipped we get all the models that are downloadable, you will get SketchfabModel objects that can be used to download the models directly by calling SketchfabModelImporter.Import or you can use them to list them with their uid, name, if can be downloaded, a description, a face count, a vertex count and a list of thumbnails of the model that can be rendered as a preview.
+
+```
+    UnityWebRequestSketchfabModelList.Parameters p = new UnityWebRequestSketchfabModelList.Parameters();
+    p.downloadable = true;
+    SketchfabAPI.GetModelList(p,((SketchfabResponse<SketchfabModelList> _answer) =>
+    {
+        SketchfabResponse<SketchfabModelList> ans = _answer;
+        m_ModelList = ans.Object.Models; 
+    }));
+```
+
+## Model Searching by keywords
+
+It follows the same logic than GetModelList but with the option of setting some keyworkds in that case we are looking for the keyword "Cat" but you can add many keywords as you want as the signature of the method is accepting `params string[] _keywords` as you can see on the method signature:
+```
+ public static void ModelSearch(Action<SketchfabResponse<SketchfabModelList>> _onModelListRetrieved, UnityWebRequestSketchfabModelList.Parameters _requestParameters, params string[] _keywords) 
+```
+
+```
+    UnityWebRequestSketchfabModelList.Parameters p = new UnityWebRequestSketchfabModelList.Parameters();
+    p.downloadable = true;
+    string searchKeyword = "Cat";
+    SketchfabAPI.ModelSearch(((SketchfabResponse<SketchfabModelList> _answer) =>
+    {
+        SketchfabResponse<SketchfabModelList> ans = _answer;
+        m_ModelList = ans.Object.Models; 
+    }), p, searchKeyword);
+```
+
+
+
