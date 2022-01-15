@@ -28,7 +28,7 @@ There are two options to use this project
 4) Get User Information (Own Account).
 5) Get Model Lists (With thumbnails).
 6) Search Models.
-7) Model and Info Cache in order to avoid queries for objects that you already downloaded.
+7) Model and Info cache in order to avoid queries for models or model information that you already downloaded.
 
 
 # Examples
