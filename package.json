@@ -1,0 +1,15 @@
+{
+  "name": "com.unity.sketchfab",
+  "version": "1.0.0",
+  "displayName": "Sketchfab for Unity",
+  "description": "",
+  "unity": "2019.4",
+  "unityRelease": "0f1",
+  "dependencies": {
+ },
+  "author": {
+    "name": "Cyril Boucher",
+    "email": "cyril.boucher94260@gmail.com",
+    "url": "https://github.com/cyrilBoucher"
+  }
+}

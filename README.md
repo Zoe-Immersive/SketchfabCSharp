@@ -1,5 +1,24 @@
 # SketchfabCSharp
-C# wrapper for the Sketchfab API (Unity)
+C# wrapper for the Sketchfab API (Unity Plugin)
+
+This is a homemade plugin that encapsulates some of the REST API endpoints from Sketchfab. Most of them are detailed here: https://docs.sketchfab.com/data-api/v3/index.html#/ while the endpoints for authentication are detailed here: https://sketchfab.com/developers/oauth.
+
+## Dependencies
+- glTFast v4.0.0 (https://openupm.com/packages/com.atteneder.gltfast/)
+- Newtonsoft.Json for Unity v 12.0.201 (https://openupm.com/packages/jillejr.newtonsoft.json-for-unity/)
+
+## How to make modifications
+
+The project does not contain anything from a Unity project appart from the meta files and it is best it remains that way.
+
+In order to make modifications and test the package in Unity, the best way is to create a Unity project and clone this repository somewhere in the Asset folder of said Unity project.
+
+## How to use the plugin
+
+There are two options to use this project
+
+1) You can clone the whole plugin as a submodule or just downloading the code.
+2) Import it as a plugin in your unity project.
 
 # Functions Included
 

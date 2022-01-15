@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfe6429d24d4b949b126aa8b3bfbf92, type: 3}
+  m_Name: SketchfabSettings
+  m_EditorClassIdentifier: 
+  m_ClientID: 4pf3pZ8zw4MqYWrOFbZUqglXyjhIGGtnBn0fxfeV
+  m_ClientSecret: 14qvGSez0ycDL3PoihCjRjTHO6IN9FD1R1azDYgcNDov8isr0wVFZ3i8LEeWyn6kwluT9lTjG80vbw8jxgVCY8Vw57dPPaS1P0OEUnn1YJfy3TfjvzC0uYtDV6Py7T4f
