@@ -62,7 +62,7 @@ To Logout just call:
 
 ## Download Model
 
-Downloads a model using its uid (using cache, see next example to check how to disable it)
+Downloads a model using its uid (if you want to use the cache system to save API calls see next example)
 
 ```
   // This first call will get the model information
@@ -79,11 +79,11 @@ Downloads a model using its uid (using cache, see next example to check how to d
   });
 ```
 
-Download model disabling the cache (Usefull if you want to download models that are actively being changed)
+Download model enabling the cache (Usefull if you want to avoid making API calls for models that you already downloaded)
 
 ```
   // This first call will get the model information
-  bool disableCache = true;
+  bool enableCache = true;
   SketchfabAPI.GetModel(_uid, (resp) =>
   {
       // This second call will get the model information, download it and instantiate it
@@ -93,8 +93,8 @@ Download model disabling the cache (Usefull if you want to download models that 
           {
               // Here you can do anything you like to obj (A unity game object containing the sketchfab model)
           }
-      }, disableCache); // Now it will allways download the model.
-  }, disableCache); // Now it will allways fetch the new model information.
+      }, enableCache); // Now it will allways download the model.
+  }, enableCache); // Now it will allways fetch the new model information.
 ```
 
 
