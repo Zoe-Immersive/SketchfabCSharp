@@ -93,8 +93,8 @@ Download model enabling the cache (Usefull if you want to avoid making API calls
           {
               // Here you can do anything you like to obj (A unity game object containing the sketchfab model)
           }
-      }, enableCache); // Now it will allways download the model.
-  }, enableCache); // Now it will allways fetch the new model information.
+      }, enableCache);
+  }, enableCache);
 ```
 
 
