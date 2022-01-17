@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(fileName = "SketchfabSettings", menuName="SketchfabWrapper")]
 public class SketchfabSettings : ScriptableObject
 {
     private static SketchfabSettings m_Instance;
