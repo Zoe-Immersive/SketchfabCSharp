@@ -54,13 +54,13 @@ public static class SketchfabAPI
         });
     }
 
-    public static void GetModel(string _modelUID, Action<SketchfabResponse<SketchfabModel>> _onModelRetrieved, bool _disableCache=false)
+    public static void GetModel(string _modelUID, Action<SketchfabResponse<SketchfabModel>> _onModelRetrieved, bool _enableCache=false)
     {
         // Make sure that the data is initialized as persistent data path can't be accessed from the main thread
         SketchfabModelImporter.EnsureInitialized();
 
         bool inCache = false;
-        if(!_disableCache)
+        if(_enableCache)
         {
             // TODO: this method needs to run async as now is running from the main thread
             inCache = Task.Run(() => SketchfabModelImporter.IsUidInCache(_modelUID)).Result;
@@ -84,7 +84,7 @@ public static class SketchfabAPI
             SketchfabResponse<SketchfabModel> response = DownloadHandlerSketchfabModel.GetModel(uwr);
             // NOTE: In order to have backward compatibility we need to check the case
             // where the metadata is not cached but the model is already cached
-            if(!_disableCache && inCache)
+            if(_enableCache && inCache)
             {
                 if(response.Success && response.Object != null)
                 {

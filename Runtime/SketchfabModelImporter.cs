@@ -23,10 +23,10 @@ public static class SketchfabModelImporter
         }
     }
 
-    public static async void Import(SketchfabModel _model, Action<GameObject> _onModelImported, bool _disableCache=false)
+    public static async void Import(SketchfabModel _model, Action<GameObject> _onModelImported, bool _enableCache=false)
     {
 
-        if(!_disableCache)
+        if(_enableCache)
         {
             if (await m_Cache.IsInCache(_model))
             {
