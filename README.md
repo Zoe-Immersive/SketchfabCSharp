@@ -15,10 +15,22 @@ In order to make modifications and test the package in Unity, the best way is to
 
 ## How to use the plugin
 
+
+### Importing the code
 There are two options to use this project
 
 1) You can clone the whole plugin as a submodule or just download the code.
 2) Import it as a plugin in your unity project.
+
+### Solve the dependencies
+1) Install the glTFast and Newtonsoft.Json packages into the project
+
+### Sketchfab Settings
+1) Create an Sketchfab folder inside the Assets folder in your unity project
+2) Create a Resources folder inside your new Sketchfab Folder (Sketchfab/Resources)
+3) Navigate to Sketchfab/Resources (inside Unity)
+4) Right Click > Create > SketchfabSettings
+5) Add your Client ID and Client Secret into the SketchfabSettings.
 
 # Functions Included
 
