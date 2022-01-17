@@ -9,7 +9,7 @@ This is a homemade plugin that encapsulates some of the REST API endpoints from 
 
 ## How to make modifications
 
-The project does not contain anything from a Unity project appart from the meta files and it is best it remains that way.
+The project does not contain anything from a Unity project apart from the meta files and it is best it remains that way.
 
 In order to make modifications and test the package in Unity, the best way is to create a Unity project and clone this repository somewhere in the Asset folder of said Unity project.
 
@@ -17,7 +17,7 @@ In order to make modifications and test the package in Unity, the best way is to
 
 There are two options to use this project
 
-1) You can clone the whole plugin as a submodule or just downloading the code.
+1) You can clone the whole plugin as a submodule or just download the code.
 2) Import it as a plugin in your unity project.
 
 # Functions Included
