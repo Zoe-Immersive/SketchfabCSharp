@@ -12,7 +12,7 @@ public static class SketchfabModelImporter
     private const string m_SketchfabModelTemporaryDownloadFolderName = "SketchfabModelTemp";
 
     private static SketchfabModelDiskCache m_Cache = new SketchfabModelDiskCache(Path.Combine(Application.persistentDataPath, m_SketchfabModelCacheFolderName), 1024 * 1024 * 1024);
-    private static SketchfabModelDiskTemp m_Temp = new SketchfabModelDiskTemp(Path.Combine(Application.persistentDataPath, m_SketchfabModelTemporaryDownloadFolderName), 5.0f);
+    private static SketchfabModelDiskTemp m_Temp = new SketchfabModelDiskTemp(Path.Combine(Application.persistentDataPath, m_SketchfabModelTemporaryDownloadFolderName), 10.0f);
 
     public static void EnsureInitialized()
     {
@@ -25,7 +25,6 @@ public static class SketchfabModelImporter
 
     public static async void Import(SketchfabModel _model, Action<GameObject> _onModelImported, bool _enableCache=false)
     {
-
         if(_enableCache)
         {
             if (await m_Cache.IsInCache(_model))
@@ -34,7 +33,6 @@ public static class SketchfabModelImporter
                 return;
             }
         }
-
 
         SketchfabAPI.GetGLTFModelDownloadUrl(_model.Uid, (SketchfabResponse<string> _modelDownloadUrl) =>
         {
