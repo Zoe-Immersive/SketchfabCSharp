@@ -21,6 +21,14 @@ public static class UnityWebRequestSketchfabModelList
         public bool? hasSound;
         public bool? restricted;
 
+        public bool? archives_flavours;
+        public int? available_archive_type;
+        public int? archives_max_size;
+        public int? archives_max_face_count;
+        public int? archives_max_vertex_count;
+        public int? archives_max_texture_count;
+        public int? archives_texture_max_resolution;
+
         public string UrlEcnode()
         {
             List<string> urlParameters = new List<string>();
@@ -93,6 +101,41 @@ public static class UnityWebRequestSketchfabModelList
             if (restricted != null)
             {
                 urlParameters.Add($"restricted={restricted.Value}");
+            }
+
+            if(archives_flavours != null)
+            {
+                urlParameters.Add($"archives_flavours={archives_flavours.Value}");
+            }
+
+            if (available_archive_type != null)
+            {
+                urlParameters.Add($"available_archive_type={available_archive_type.Value}");
+            }
+
+            if (archives_max_size != null)
+            {
+                urlParameters.Add($"archives_max_size={archives_max_size.Value}");
+            }
+
+            if (archives_max_face_count != null)
+            {
+                urlParameters.Add($"archives_max_face_count={archives_max_face_count.Value}");
+            }
+
+            if (archives_max_vertex_count != null)
+            {
+                urlParameters.Add($"archives_max_vertex_count={archives_max_vertex_count.Value}");
+            }
+
+            if (archives_max_texture_count != null)
+            {
+                urlParameters.Add($"archives_max_texture_count={archives_max_texture_count.Value}");
+            }
+
+            if (archives_texture_max_resolution != null)
+            {
+                urlParameters.Add($"archives_texture_max_resolution={archives_texture_max_resolution.Value}");
             }
 
             return string.Join("&", urlParameters);
