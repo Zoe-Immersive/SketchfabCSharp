@@ -117,7 +117,17 @@ public static class SketchfabModelImporter
     static private async void GltfImport(string _gltfFilePath, Action<GameObject> _onModelImported)
     {
         GltfImport gltf = new GltfImport();
-        bool success = await gltf.Load(_gltfFilePath);
+
+        bool success = true;
+        try
+        {
+            success = await gltf.Load(_gltfFilePath);
+        }
+        catch(Exception ex)
+        {
+            success = false;
+        }
+
 
         if (!success)
         {
