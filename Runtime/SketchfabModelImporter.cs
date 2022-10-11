@@ -137,7 +137,7 @@ public static class SketchfabModelImporter
         }
 
         GameObject go = new GameObject("SketchfabModel");
-        success = gltf.InstantiateMainScene(go.transform);
+        success = await gltf.InstantiateMainScene(go.transform);
 
         if (!success)
         {
