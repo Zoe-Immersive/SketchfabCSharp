@@ -29,6 +29,9 @@ public static class UnityWebRequestSketchfabModelList
         public int? archives_max_texture_count;
         public int? archives_texture_max_resolution;
 
+        public int? count;
+        public int? offset;
+
         public string UrlEcnode()
         {
             List<string> urlParameters = new List<string>();
@@ -136,6 +139,16 @@ public static class UnityWebRequestSketchfabModelList
             if (archives_texture_max_resolution != null)
             {
                 urlParameters.Add($"archives_texture_max_resolution={archives_texture_max_resolution.Value}");
+            }
+
+            if (count != null && count > 0)
+            {
+                urlParameters.Add($"count={count.Value}");
+            }
+
+            if (offset != null && offset > 0)
+            {
+                urlParameters.Add($"offset={offset.Value}");
             }
 
             return string.Join("&", urlParameters);
