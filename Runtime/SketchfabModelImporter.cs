@@ -55,8 +55,8 @@ public static class SketchfabModelImporter
 
         SketchfabWebRequestManager.Instance.SendRequest(downloadRequest, (UnityWebRequest _request) =>
         {
-            if (downloadRequest.isHttpError ||
-                downloadRequest.isNetworkError)
+            if (downloadRequest.result == UnityWebRequest.Result.ProtocolError ||
+                downloadRequest.result == UnityWebRequest.Result.ConnectionError)
             {
                 Debug.Log(downloadRequest.error);
 

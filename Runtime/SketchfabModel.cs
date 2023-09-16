@@ -9,7 +9,7 @@ public class SketchfabModel
     public int FaceCount { get; set; }
     public int VertexCount { get; set; }
     public SketchfabThumbnailList Thumbnails { get; set; }
-
+    public SketchfabLicense License { get; set; }
     public override string ToString()
     {
         string modelString = $"Uid: {Uid}\n" +
@@ -18,6 +18,7 @@ public class SketchfabModel
             $"Description: {Description}\n" +
             $"Face count: {FaceCount}\n" +
             $"Vertex count: {VertexCount}\n" +
+            $"License: {License}\n" +
             $"Thumbnails: {Thumbnails}";
 
         return modelString;
