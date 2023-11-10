@@ -34,6 +34,29 @@ public class SketchfabResponse<T>
         return response;
     }
 
+    internal static SketchfabResponse<SketchfabCategoryList> FromCategoryListResponse(UnityWebRequest _categoryListRequest)
+    {
+        SketchfabResponse<SketchfabCategoryList> response = new SketchfabResponse<SketchfabCategoryList>();
+        if (_categoryListRequest.responseCode != 200)
+        {
+            ParseModelErrorResponse(response, _categoryListRequest);
+
+            return response;
+        }
+
+        SketchfabCategoryList categoryList = JsonConvert.DeserializeObject<SketchfabCategoryList>(_categoryListRequest.downloadHandler.text);
+
+        if (categoryList == null)
+        {
+            return response;
+        }
+
+        response.Object = categoryList;
+        response.Success = true;
+
+        return response;
+    }
+
     internal static SketchfabResponse<SketchfabAccessToken> FromAccessTokenResponse(UnityWebRequest _accessTokenRequest)
     {
         SketchfabResponse<SketchfabAccessToken> response = new SketchfabResponse<SketchfabAccessToken>();
