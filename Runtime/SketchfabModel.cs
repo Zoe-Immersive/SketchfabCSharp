@@ -8,7 +8,9 @@ public class SketchfabModel
     public string Description { get; set; }
     public int FaceCount { get; set; }
     public int VertexCount { get; set; }
+    public SketchfabArchives Archives { get; set; } 
     public SketchfabThumbnailList Thumbnails { get; set; }
+
     public SketchfabLicense License { get; set; }
     public override string ToString()
     {
