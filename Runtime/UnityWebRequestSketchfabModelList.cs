@@ -9,6 +9,7 @@ public static class UnityWebRequestSketchfabModelList
         public string user;
         public List<string> tags;
         public List<string> categories;
+        public List<string> licenses;
         // only used for search
         public int? minFaceCount;
         public int? maxFaceCount;
@@ -55,6 +56,15 @@ public static class UnityWebRequestSketchfabModelList
                 foreach (string category in categories)
                 {
                     urlParameters.Add($"categories={category}");
+                }
+            }
+
+            if (licenses != null &&
+                licenses.Count != 0)
+            {
+                foreach (string license in licenses)
+                {
+                    urlParameters.Add($"licenses={license}");
                 }
             }
 

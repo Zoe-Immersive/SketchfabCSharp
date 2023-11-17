@@ -127,6 +127,16 @@ public static class SketchfabAPI
         });
     }
 
+    public static void GetCategoryList(Action<SketchfabResponse<SketchfabCategoryList>> _onModelListRetrieved, UnityWebRequestSketchfabCategoryList.Parameters _requestParameters, params string[] _keywords)
+    {
+        UnityWebRequest uwr = UnityWebRequestSketchfabCategoryList.GetCategoryList(_requestParameters);
+
+        SketchfabWebRequestManager.Instance.SendRequest(uwr, (UnityWebRequest _request) =>
+        {
+            _onModelListRetrieved?.Invoke(DownloadHandlerSketchfabCategoryList.GetCategoryList(uwr));
+        });
+    }
+
     public static void GetNextModelListPage(SketchfabModelList _previousModelList, Action<SketchfabResponse<SketchfabModelList>> _onModelListRetrieved)
     {
         UnityWebRequest uwr = UnityWebRequestSketchfabModelList.GetNextModelListPage(_previousModelList);
