@@ -11,6 +11,7 @@ public class SketchfabModel
     public SketchfabArchives Archives { get; set; } 
     public SketchfabThumbnailList Thumbnails { get; set; }
     public SketchfabLicense License { get; set; }
+    public SketchfabUser User { get; set; }
     public override string ToString()
     {
         string modelString = $"Uid: {Uid}\n" +
@@ -20,7 +21,8 @@ public class SketchfabModel
             $"Face count: {FaceCount}\n" +
             $"Vertex count: {VertexCount}\n" +
             $"License: {License}\n" +
-            $"Thumbnails: {Thumbnails}";
+            $"Thumbnails: {Thumbnails}\n" +
+            $"User: {User}";
 
         return modelString;
     }

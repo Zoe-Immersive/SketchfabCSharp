@@ -6,4 +6,5 @@
     public const string ModelEndpoint = "https://api.sketchfab.com/v3/models";
     public const string CategoryEndpoint = "https://api.sketchfab.com/v3/categories";
     public const string UserInfomationEndpoint = "https://api.sketchfab.com/v3/me";
+    public const string UserByUidEndpoint = "https://api.sketchfab.com/v3/users";
 }
