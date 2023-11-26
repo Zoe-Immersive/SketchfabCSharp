@@ -139,6 +139,21 @@ public class SketchfabResponse<T>
 
         return response;
     }
+    internal static SketchfabResponse<SketchfabUser> FromUserResponse(UnityWebRequest _userRequest)
+    {
+        SketchfabResponse<SketchfabUser> response = new SketchfabResponse<SketchfabUser>();
+        if (_userRequest.responseCode != 200)
+        {
+            ParseModelErrorResponse(response, _userRequest);
+
+            return response;
+        }
+
+        response.Object = JsonConvert.DeserializeObject<SketchfabUser>(_userRequest.downloadHandler.text);
+        response.Success = true;
+
+        return response;
+    }
 
     private static void ParseModelErrorResponse<T>(SketchfabResponse<T> response, UnityWebRequest _unityWebRequest)
     {

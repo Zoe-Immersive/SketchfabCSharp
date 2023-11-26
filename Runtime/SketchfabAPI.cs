@@ -105,6 +105,17 @@ public static class SketchfabAPI
             _onInfoReceived?.Invoke(DownloadUserInformation.GetInfo(_request));
         });
     }
+    
+    public static void GetUserByUid(string _uid, Action<SketchfabResponse<SketchfabUser>> _onInfoReceived)
+    {
+        UnityWebRequest uwr = UnityWebRequestGetUserByUid.Get(_uid);
+        AuthenticateRequest(uwr);
+
+        SketchfabWebRequestManager.Instance.SendRequest(uwr, (UnityWebRequest _request) =>
+        {
+            _onInfoReceived?.Invoke(DownloadHandlerSketchfabUser.GetUser(_request));
+        });
+    }
 
 
     public static void GetModelList(UnityWebRequestSketchfabModelList.Parameters _requestParameters, Action<SketchfabResponse<SketchfabModelList>> _onModelListRetrieved)
